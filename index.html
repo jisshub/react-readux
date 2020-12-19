@@ -17,28 +17,23 @@
                 name: 'Bale',
                 age: 45
             }
-            handleClick = (e) => {
-                this.setState(
-                    {
-                    name: "shaun", 
-                    age: 67
+            handleChange = (e) =>{
+                this.setState({
+                    name: e.target.value
                 });
-                console.log({name: this.state.name, age: this.state.age});
             }
-            handleMouseOver = (e) => {
-                console.log(e.target);
-            }
-            handleCopy = (e)=>{
-                console.log("Oh God u again!");
+            formSubmit = (e) => {
+                e.preventDefault();
+                console.log(`${this.state.name} submitted the form`);
             }
             render(){
                 return(
                     <div className = "app-content">
-                        <h1>Hey Ninjas</h1>
-                        <p>Name is: {this.state.name} with age: {this.state.age}</p>
-                        <button onClick={this.handleClick}>Click Me</button>
-                        <button onMouseOver={this.handleMouseOver}>Hover Me</button>
-                        <p onCopy={this.handleCopy}>Copying this line shows a message</p>
+                        <p>Name is: {this.state.name}</p>
+                        <form onSubmit={this.formSubmit}>
+                            <input type="text" name="name" id="name" onChange={this.handleChange}/>
+                            <button>Submit</button>
+                        </form>
                     </div>
                 )
             }

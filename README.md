@@ -357,3 +357,77 @@ class App extends React.Component{
 ---
 
 # Intro to Forms
+
+## Tracking Changes in Element using onChange Event
+
+```js
+class App extends React.Component {
+  state = { name: 'Bale', age: 45 };
+  handleChange = (e) => {
+    this.setState({ name: e.target.value });
+  };
+  render() {
+    return (
+      <div className='app-content'>
+        <p>Name is: {this.state.name}</p>
+        <form>
+          <input
+            type='text'
+            name='name'
+            id='name'
+            onChange={this.handleChange}
+          />
+          <button>Submit</button>
+        </form>
+      </div>
+    );
+  }
+}
+```
+
+- _onChange_ event fires whenever v make a change in input element.
+- Using this event, we can keep track of changes made in input field.
+
+## Submitting the Form using onSubmit Event
+
+- Use _onSubmit_ event inside form element.
+
+- set reference to the function.
+
+- define function and prevent page reload of browser on submit.
+
+```js
+class App extends React.Component {
+  state = {
+    name: 'Bale',
+    age: 45,
+  };
+  handleChange = (e) => {
+    this.setState({
+      name: e.target.value,
+    });
+  };
+  formSubmit = (e) => {
+    e.preventDefault();
+    console.log(`${this.state.name} submitted the form`);
+  };
+  render() {
+    return (
+      <div className='app-content'>
+        <p>Name is: {this.state.name}</p>
+        <form onSubmit={this.formSubmit}>
+          <input
+            type='text'
+            name='name'
+            id='name'
+            onChange={this.handleChange}
+          />
+          <button>Submit</button>
+        </form>
+      </div>
+    );
+  }
+}
+```
+
+---

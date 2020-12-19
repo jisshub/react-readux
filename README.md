@@ -72,7 +72,7 @@ _both lines of code is only responsible for development._
 **index.html**
 
 ```html
-<body>  
+<body>
   <div id="app"></div>
 
   <script>
@@ -288,5 +288,72 @@ Uncaught SyntaxError: Unexpected token '<'
 </script>
 ```
 
-# Changing State 
+# Changing State
 
+- we cant access the state using this keyword with in a function in the component.
+- I meant like this,
+
+```js
+class App extends React.Component {
+  state = {
+    name: 'Bale',
+    age: 45,
+  };
+  handleClick(e) {
+    console.log(e.target);
+    console.log(this.state.name);
+  }
+  render() {
+    return (
+      <div className='app-content'>
+        <p>
+          Name is: {this.state.name} with age: {this.state.age}
+        </p>
+      </div>
+    );
+  }
+}
+```
+
+- but we can access the _state_ using _this_ keyword inside the _render()_ method.
+
+- To get access to the _state_ using this keyword, v use _arrow functions_ instead of _custom functions_ in
+  the component.
+
+```js
+class App extends React.Component{
+    state = {
+        name: 'Bale',
+        age: 45
+    }
+    handleClick = (e) => {
+        console.log(e.target);
+        console.log(this.state.name, this.state.age);
+    }
+```
+
+- when v use arrow function, it binds the value of _this_ keyword to the component instance.
+
+## Changing the state property
+
+```js
+ class App extends React.Component{
+            state = {
+                name: 'Bale',
+                age: 45
+            }
+            handleClick = (e) => {
+                this.setState(
+                    {
+                    name: "shaun",
+                    age: 67
+                });
+                console.log({name: this.state.name, age: this.state.age});
+            }
+```
+
+- here v change the state property value on click event. use **setState()** method.
+
+---
+
+# Intro to Forms

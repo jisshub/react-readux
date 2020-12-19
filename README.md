@@ -1,5 +1,7 @@
 [Create React App](#Create-React-App)
 
+[Single Page Apps & File Structure](#Single-Page-Apps-and-File-Structure)
+
 # What is React and Redux ?
 
 ![](./screenshot/what_is_react.jpg)
@@ -454,7 +456,7 @@ npm start
 
 ---
 
-# Single Page Apps(SPA's) and File Structure
+# Single Page Apps and File Structure
 
 ![](./screenshot/image-8.jpg)
 

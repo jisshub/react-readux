@@ -1,3 +1,5 @@
+[Create React App](#Create-React-App)
+
 # What is React and Redux ?
 
 ![](./screenshot/what_is_react.jpg)
@@ -431,3 +433,136 @@ class App extends React.Component {
 ```
 
 ---
+
+# Create React App
+
+![](./screenshot/image-7.jpg)
+
+## Creating An App
+
+- Go thru below link
+
+  [Creating an App](https://github.com/facebook/create-react-app)
+
+or run below command
+
+```terminal
+npx create-react-app my-app
+cd my-app
+npm start
+```
+
+---
+
+# Single Page Apps(SPA's) and File Structure
+
+![](./screenshot/image-8.jpg)
+
+## What is Multi Page App
+
+- To load to different page, v sent different request and gets the response. for
+  example, to get index page v sent a request, for contact page v sent another request.
+
+![](./screenshot/image-9.jpg)
+
+## What is Single Page App
+
+- In SPA, user sent a request to get index page, and gets response index.html.
+  once v get index page, if user clicks on a link to contact page, REACT intercepts that request from going to the server and loads the _contact component_ in the browser.
+
+![](./screenshot/image-10.jpg)
+
+- This way React shows diff. components to the user based on their actions.
+
+## File Structure
+
+**public > index.html** - Initial index file served by the server. React injects the components dynamically to the div element.
+
+```html
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+</body>
+```
+
+**src > App.js** - is the App component file. v export our App component here
+
+```js
+import logo from './logo.svg';
+import './App.css';
+
+function App() {
+  return (
+    <div className='App'>
+      <header className='App-header'>
+        <img src={logo} className='App-logo' alt='logo' />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className='App-link'
+          href='https://reactjs.org'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
+
+export default App;
+```
+
+**src > index.js** - where v render our App component to the DOM. V import the App component here
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+```
+
+---
+
+## Initial Set Up
+
+**App.js**
+
+```js
+import './App.css';
+
+function App() {
+  return (
+    <div className='App'>
+      <h2>Welcome to My App</h2>
+    </div>
+  );
+}
+
+export default App;
+```

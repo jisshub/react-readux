@@ -568,3 +568,142 @@ function App() {
 
 export default App;
 ```
+
+---
+
+# Nesting Components
+
+- Here Root component is App.js, and it rendered to the browser.
+
+- If want to show some other components, we nest them in this root component.
+
+![](./screenshot/image-11.jpg)
+
+## Create a component nest it in root component
+
+1. _Create component and export_
+
+   **Ninjas.js**
+
+   ```js
+   import React, { Component } from 'react';
+
+   class Ninjas extends Component {
+     render() {
+       return (
+         <div className='ninja'>
+           <div>Name: Ryu</div>
+           <div>Age: 33</div>
+           <div>Belt: Black</div>
+         </div>
+       );
+     }
+   }
+   export default Ninjas;
+   ```
+
+2. _Import component and Nest_
+
+   **App.js**
+
+   ```js
+   import Ninjas from './Ninjas';
+
+   function App() {
+     return (
+       <div className='App'>
+         <h2>Welcome to My App</h2>
+         <Ninjas />
+       </div>
+     );
+   }
+
+   export default App;
+   ```
+
+## Why Nesting Components
+
+1. To keep our code modular. one component have it's own state and methods. and v dont have to mix up those with state and methods of other component.
+
+2. Also v can reuse that component and nest it in other components as well.
+
+3. Also it will nice to make contents inside the component more dynamic rather hardcoding the contents to it.
+
+---
+
+# Props
+
+- Props known as property names.
+
+- A feature used to pass data from parent to child component.
+
+  1. first v pass property names and values to nested component in parent component.
+
+     **App.js**
+
+     ```js
+     function App() {
+       return (
+         <div className='App'>
+           <h2>Welcome to My App</h2>
+           <Ninjas name='kroos' age='29' belt='Black' />
+         </div>
+       );
+     }
+     ```
+
+  2. Later v access those property names in child component using _this.props_, and output them in template.
+
+     **Ninja.js**
+
+     ```js
+     class Ninjas extends Component {
+       render() {
+         const { name, age, belt } = this.props;
+         return (
+           <div className='ninja'>
+             <div>Name: {name}</div>
+             <div>Age: {age}</div>
+             <div>Belt: {belt}</div>
+           </div>
+         );
+       }
+     }
+     ```
+
+- This how we pass props b/w components and rendering them in the template.
+
+---
+
+# Outputting Array of Objects
+
+_Passing an array of object to the nested component as a Prop. Then receive that array in child component as a Prop.
+later loop thru it and output them in template._
+
+1. First create an array of object. Pass that array as prop in nested component.
+
+   **App.js**
+
+   ```js
+   function App() {
+     state = {
+       ninjas: [
+         { name: 'kross', age: 34, belt: 'black', id: 1 },
+         { name: 'modric', age: 35, belt: 'white', id: 2 },
+         { name: 'benzema', age: 33, belt: 'orange', id: 3 },
+       ],
+     };
+     return (
+       <div className='App'>
+         <h2>Welcome to My App</h2>
+         <Ninjas ninjas={this.state.ninjas} />
+       </div>
+     );
+   }
+   ```
+
+2. We can have access to the _ninjas_ array in child component using _this.props_.
+
+time: 2:00
+
+---

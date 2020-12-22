@@ -704,6 +704,5 @@ later loop thru it and output them in template._
 
 2. We can have access to the _ninjas_ array in child component using _this.props_.
 
-time: 2:00
 
 ---

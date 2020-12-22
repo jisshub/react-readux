@@ -794,3 +794,5 @@ Frist v create an ninjas array and pass it to nested component. v access that ar
 thus we get the original array _ninjas_, then map thru that array and got individual ninja. then v return jsx to o/p each individual ninja. and later that jsx is stored to new array called _ninjaList_. and finally v o/p that _ninjasList_ in _return_ method in form of jsx.
 
 ---
+
+# Stateless Components

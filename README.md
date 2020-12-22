@@ -1,6 +1,24 @@
 [Create React App](#Create-React-App)
 
+[React SetUp with CDN](#React-SetUp-with-CDN)
+
+[React Components](#React-Components)
+
+[Component State](#Component-State)
+
+[React Dev Tools](#React-Dev-Tools)
+
+[DOM Events](#DOM-Events)
+
+[Changing State](#Changing-State)
+
+[Intro to Forms](#Intro-to-Forms)
+
 [Single Page Apps & File Structure](#Single-Page-Apps-and-File-Structure)
+
+[Nesting Components](#Nesting-Components)
+
+[Outputting Array of Objects](#Outputting-Array-of-Objects)
 
 # What is React and Redux ?
 
@@ -58,7 +76,7 @@ _both lines of code is only responsible for development._
 
 ---
 
-# React components
+# React Components
 
 ## how to build a react component (Class Based Component)
 
@@ -704,5 +722,75 @@ later loop thru it and output them in template._
 
 2. We can have access to the _ninjas_ array in child component using _this.props_.
 
+   **Ninjas.js**
+
+   ```js
+   class Ninjas extends Component{
+    render(){
+   const { ninjas } = this.props;
+   return();
+   }
+   ```
+
+3. Later output each ninjas details in the template. for that v use map method.
+
+   ```js
+   class Ninjas extends Component {
+     render() {
+       const { ninjas } = this.props;
+       const ninjaList = ninjas.map((ninja) => {
+         return (
+           <div className='ninja'>
+             <div>Name: {ninja.name}</div>
+             <div>Age: {ninja.age}</div>
+             <div>Belt: {ninja.belt}</div>
+           </div>
+         );
+       });
+     }
+   }
+   ```
+
+4. v return jsx. and stored that jsx of each ninjas in _ninjasList_. next v o/p this array in _return()_.
+
+   ```js
+   class Ninjas extends Component {
+     render() {
+       const { ninjas } = this.props;
+       const ninjaList = ninjas.map((ninja) => {
+         return (
+           <div className='ninja'>
+             <div>Name: {ninja.name}</div>
+             <div>Age: {ninja.age}</div>
+             <div>Belt: {ninja.belt}</div>
+           </div>
+         );
+       });
+       return <div className='ninja-list'>{ninjaList}</div>;
+     }
+   }
+   ```
+
+5. Now it shows a warning in the console.
+
+   ```console
+   Warning: Each child in a list should have a unique "key" prop
+   ```
+
+   **Solution: Give a unique key for each ninja.**
+
+   ```js
+   return (
+     <div className='ninja' key={ninja.id}>
+       <div>Name: {ninja.name}</div>
+       <div>Age: {ninja.age}</div>
+       <div>Belt: {ninja.belt}</div>
+     </div>
+   );
+   ```
+
+**Full Process:**
+Frist v create an ninjas array and pass it to nested component. v access that array in child compoennt using _this.props_.
+thus we get the original array _ninjas_, then map thru that array and got individual ninja. then v return jsx to o/p each individual ninja. and later that jsx is stored to new array called _ninjaList_. and finally v o/p that _ninjasList_ in _return_ method in form of jsx.
 
 ---

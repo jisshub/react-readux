@@ -20,7 +20,7 @@
 
 [Outputting Array of Objects](#Outputting-Array-of-Objects)
 
-[Stateless Components](#Stateless-Components)
+[Stateless Components - Two Types of Component](#Stateless-Components)
 
 [Conditional Output](#Conditional-Output)
 

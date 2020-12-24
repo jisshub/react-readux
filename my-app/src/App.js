@@ -7,7 +7,7 @@ class App extends Component {
     ninjas: [
              {name: 'kross', age: 34, belt: 'black', id: 1},
              {name: 'modric', age: 35, belt: 'white', id: 2},
-             {name: 'benzema', age: 33, belt: 'orange', id: 3},
+             {name: 'benzema', age: 13, belt: 'orange', id: 3},
             ]
   }
   render(){

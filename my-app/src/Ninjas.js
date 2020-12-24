@@ -1,5 +1,4 @@
 import React from "react";
-
 const Ninjas = ({ninjas}) => {
     const ninjaList = ninjas.map(ninja => { 
         return ninja.age > 20 ?
@@ -17,3 +16,4 @@ const Ninjas = ({ninjas}) => {
     )
 }
 export default Ninjas;
+

@@ -952,3 +952,87 @@ const Ninjas = ({ ninjas }) => {
 ```
 
 ---
+
+# Forms
+
+Create a form to add ninja - 3 input fields - name, age and belt. on submit, data is added to ninjas array in App.js. When state gets updated, props also gets updated. thus it will rerender the template that outputs the data.
+
+1. First step is to create a component for this form.
+
+2. When ever v update any of the field, handleChange() function fires and keeps the property of state in sync with the input field.
+
+3. we use _target.id_ to find which input field is changed. and then set the value to it.
+
+**AddNinja.js**
+
+```js
+export default class AddNinja extends Component {
+  state = {
+    name: null,
+    age: null,
+    belt: null,
+  };
+  handleChange = (e) => {
+    this.setState({ [e.target.id]: e.target.value });
+  };
+  formSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state);
+  };
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.formSubmit}>
+          <label htmlFor='Name'>Name: </label>
+          <input
+            type='text'
+            name='name'
+            id='name'
+            onChange={this.handleChange}
+          />
+          <label htmlFor='age'>Age: </label>
+          <input type='text' name='age' id='age' onChange={this.handleChange} />
+          <label htmlFor='belt'>Belt: </label>
+          <input
+            type='text'
+            name='belt'
+            id='belt'
+            onChange={this.handleChange}
+          />
+          <button>Submit</button>
+        </form>
+      </div>
+    );
+  }
+}
+```
+
+4. Next we have to import _AddNinja_ component to _App_ component. and nest them in _return_ method of _render_.
+
+   **App.js**
+
+   ```js
+     render(){
+       return (
+       <div className="App">
+         <h2>Welcome to My App</h2>
+         <Ninjas ninjas={this.state.ninjas}/>
+         <AddNinja />
+       </div>
+     );
+     }
+
+   ```
+
+5. After submit v get the state in the console.
+
+   ```console
+   {name: "marcelo", age: "33", belt: "Black"}
+
+   ```
+
+Now we get all inputs user given in the fields. storing that in component state. updating those everytime. and then on submit, it takes that state and logging in the console.
+
+---
+
+# Functions as Props

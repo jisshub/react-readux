@@ -796,3 +796,110 @@ thus we get the original array _ninjas_, then map thru that array and got indivi
 ---
 
 # Stateless Components
+
+## Two Types of Components
+
+### Container Component
+
+- contains state
+- contain lifecycle hooks
+- not concerned with UI.
+- use classes to create the component.
+
+### UI Component
+
+- they dont contain state
+- receive data from props.
+- only concerned with UI.
+- Use functions to create component.
+
+![](./screenshot/image-15.jpg)
+
+- A container component can have other container component.
+- UI components are nested into container component.
+
+## Container component(Class based) to UI component(function based)
+
+**Ninjas.js**
+
+```js
+class Ninjas extends Component {
+  render() {
+    const { ninjas } = this.props;
+    const ninjaList = ninjas.map((ninja) => {
+      return (
+        <div className='ninja'>
+          <div>Name: {ninja.name}</div>
+          <div>Age: {ninja.age}</div>
+          <div>Belt: {ninja.belt}</div>
+        </div>
+      );
+    });
+    return <div className='ninja-list'>{ninjaList}</div>;
+  }
+}
+```
+
+- Convert this to UI component or function based component. Since this component receive data from _this.props_. also no _state_ used here.
+
+  **Ninjas.js**
+
+  ```js
+  const Ninjas = () => {
+    const ninjas = this.props;
+    const ninjaList = ninjas.map((ninja) => {
+      return (
+        <div className='ninja' key={ninja.id}>
+          <div>Name: {ninja.name}</div>
+          <div>Age: {ninja.age}</div>
+          <div>Belt: {ninja.belt}</div>
+        </div>
+      );
+    });
+    return <div className='ninja-list'>{ninjaList}</div>;
+  };
+  ```
+
+- This throws an error in console,
+
+```console
+TypeError: Cannot read property 'props' of undefined
+
+```
+
+**Solutions**
+
+**Using props in class based vs function based component**
+
+In function based component, v have to directly pass _props_ to functions as a parameter. Change _this.props_ to _props_, since v r not referring to an instance of a class, instead v set reference to paramter _props_.
+
+Check Below,
+
+```js
+const Ninjas = (props) => {
+    const {ninjas} = props
+```
+
+In Class based component, _props_ r automatically attached to the instance of class. and v reference them by _this.props_.
+
+After converting to function based/UI component
+
+**Ninjas.js**
+
+```js
+const Ninjas = ({ ninjas }) => {
+  // v destructure the props direclty with in function parentheses.
+  const ninjaList = ninjas.map((ninja) => {
+    return (
+      <div className='ninja' key={ninja.id}>
+        <div>Name: {ninja.name}</div>
+        <div>Age: {ninja.age}</div>
+        <div>Belt: {ninja.belt}</div>
+      </div>
+    );
+  });
+  return <div className='ninja-list'>{ninjaList}</div>;
+};
+```
+
+---

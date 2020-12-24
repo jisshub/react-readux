@@ -959,7 +959,7 @@ const Ninjas = ({ ninjas }) => {
 
 Create a form to add ninja - 3 input fields - name, age and belt. on submit, data is added to ninjas array in App.js. When state gets updated, props also gets updated. thus it will rerender the template that outputs the data.
 
-1. First step is to create a component for this form.
+1. First step is to create a class component for this form. since v create states.
 
 2. When ever v update any of the field, handleChange() function fires and keeps the property of state in sync with the input field.
 

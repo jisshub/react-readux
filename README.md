@@ -1,3 +1,7 @@
+[React & Redux](#What-is-React-and-Redux)
+
+[How React Works ?](#how-react-works-?)
+
 [Create React App](#Create-React-App)
 
 [React SetUp with CDN](#React-SetUp-with-CDN)

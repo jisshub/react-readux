@@ -24,6 +24,8 @@
 
 [Conditional Output](#Conditional-Output)
 
+[Forms Part-2](#Forms)
+
 # What is React and Redux ?
 
 ![](./screenshot/what_is_react.jpg)

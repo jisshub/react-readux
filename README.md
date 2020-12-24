@@ -818,7 +818,7 @@ thus we get the original array _ninjas_, then map thru that array and got indivi
 - A container component can have other container component.
 - UI components are nested into container component.
 
-## Container component(Class based) to UI component(function based)
+## Container component(Class based) to UI component(functional)
 
 **Ninjas.js**
 
@@ -840,7 +840,7 @@ class Ninjas extends Component {
 }
 ```
 
-- Convert this to UI component or function based component. Since this component receive data from _this.props_. also no _state_ used here.
+- Convert this to UI component or functional component. Since this component receive data from _this.props_. also no _state_ used here.
 
   **Ninjas.js**
 
@@ -869,9 +869,9 @@ TypeError: Cannot read property 'props' of undefined
 
 **Solutions**
 
-**Using props in class based vs function based component**
+**Using props in class based vs functional component**
 
-In function based component, v have to directly pass _props_ to functions as a parameter. Change _this.props_ to _props_, since v r not referring to an instance of a class, instead v set reference to paramter _props_.
+In functional/UI component, v have to directly pass _props_ to functions as a parameter. Change _this.props_ to _props_, since v r not referring to an instance of a class, instead v set reference to paramter _props_.
 
 Check Below,
 
@@ -882,7 +882,7 @@ const Ninjas = (props) => {
 
 In Class based component, _props_ r automatically attached to the instance of class. and v reference them by _this.props_.
 
-After converting to function based/UI component
+After converting to functional/UI component
 
 **Ninjas.js**
 

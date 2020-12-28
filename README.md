@@ -30,6 +30,8 @@
 
 [Forms Part-2](#Forms)
 
+[Function-as-Prop](#Functions-as-Props)
+
 # What is React and Redux ?
 
 ![](./screenshot/what_is_react.jpg)
@@ -1097,3 +1099,5 @@ Now we get all inputs user given in the fields. storing that in component state.
 This how we can pass a function as prop into another component.
 
 ---
+
+# Deleting Data

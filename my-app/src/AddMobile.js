@@ -11,7 +11,7 @@ export default class AddMobile extends Component {
         }
         addMobile = (e) => {
             e.preventDefault();
-            console.log(this.state);
+            this.props.addMyPhone(this.state)
         }
     render() {
         return (

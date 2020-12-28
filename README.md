@@ -1067,7 +1067,7 @@ Now we get all inputs user given in the fields. storing that in component state.
    }
    ```
 
-2. Next call that from AddNinja component.
+2. Next call that from AddNinja component. pass current component state as argument.
 
    **AddNinja.js**
 

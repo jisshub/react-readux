@@ -1042,3 +1042,58 @@ Now we get all inputs user given in the fields. storing that in component state.
 ---
 
 # Functions as Props
+
+- Need to add state object to state array of App component. So when v add, it updates in the browser.
+- We cant access the app component state in Add Ninja Component.
+
+**Steps:**
+
+1. First is to create a function in App component that adds new ninja to the state. Pass that function as _prop_ in AddNinja component that is nested.
+
+   **App.js**
+
+   ```js
+   addNinja = (ninja) => {
+     console.log(ninja);
+   };
+   render(){
+    return (
+    <div className="App">
+      <h2>Welcome to My App</h2>
+      <Ninjas ninjas={this.state.ninjas}/>
+      <AddNinja addNinja={this.addNinja}/>
+    </div>
+   );
+   }
+   ```
+
+2. Next call that from AddNinja component.
+
+   **AddNinja.js**
+
+   ```js
+   formSubmit = (e) => {
+     e.preventDefault();
+     this.props.addNinja(this.state);
+   };
+   ```
+
+   So here v pass new ninja from AddNinja component and log it in App component.
+
+3. Next is to add the new ninja to the state in App component. also add id to new ninja. For that, make a copy of the ninjas array using spread operator and pass new ninja object to it. later set that modified array to the state.
+
+   **App.js**
+
+   ```js
+   addNinja = (ninja) => {
+     ninja.id = Math.random();
+     let ninjas = [...this.state.ninjas, ninja];
+     this.setState({
+       ninjas: ninjas,
+     });
+   };
+   ```
+
+This how we can pass a function as prop into another component.
+
+---

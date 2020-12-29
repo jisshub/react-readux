@@ -32,6 +32,8 @@
 
 [Function-as-Prop](#Functions-as-Props)
 
+[Deleting Data](#Deleting-Data)
+
 # What is React and Redux ?
 
 ![](./screenshot/what_is_react.jpg)

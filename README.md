@@ -1186,3 +1186,6 @@ Incase of deleting ninjas v follow same strategy, _deleteNinja_ passed as a prop
 When v update the components, v get new virtual DOM and changes are compared with current virtual DOM and finally differences r updated in the DOM. So whenever v make changes, a new version of virtual DOM is created and is compared with current version of virtual DOM. and only differences in both are rendered in DOM.
 
 ---
+
+# CSS In React
+

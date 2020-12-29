@@ -1107,8 +1107,64 @@ Delete ninjas.
 **Steps**
 
 1. Create a function to delete ninja in App Component. pass id as parameter.
-2. Pass that function as a _prop_ in nested component _Ninjas_.
-3. Access that _prop_ passed in _Ninjas_ component. Now we can call this prop in _Ninjas_ component.
-4. To call it, v add a button and add an onClick event. assign that prop to it. pass _ninja id_ as argument. so on clicking on button prop will be fired and corresponding ninja deleted.
 
-   time: 3:00
+2. Pass that function as a _prop_ in nested component _Ninjas_.
+
+   ```js
+   deleteNinja = (id) => {
+     console.log(id);
+   };
+   <Ninjas deleteNinja={this.deleteNinja} ninjas={this.state.ninjas} />;
+   ```
+
+3. Access that _prop_ passed in _Ninjas_ component. Now we can call this prop in _Ninjas_ component.
+
+4. To call it, v add a button and add an onClick event. assign that prop to it. pass _ninja id_ as argument.
+
+   **Ninja.js**
+
+   ```js
+   const Ninjas = ({ninjas, deleteNinja}) => {
+     const ninjaList = ninjas.map(ninja => {
+         return ninja.age > 20 ?
+         (<div className="ninja" key={ninja.id}>
+             <div>Name: {ninja.name}</div>
+             <div>Age: {ninja.age}</div>
+             <div>Belt: {ninja.belt}</div>
+             <button onClick={deleteNinja(ninja.id)}>Delete</button>
+         </div>): null;
+         }
+     );
+   ```
+
+- So on clicking on button, prop will be fired and corresponding **ninja wont be deleted**. since _deleteNinja()_ automatically getting invoked.
+
+- Solution is to change it to _arrow function_. Thus it won't be invoked automtically on button click.
+
+  ```javascript
+  <button
+    onClick={() => {
+      deleteNinja(ninja.id);
+    }}
+  >
+    Delete
+  </button>
+  ```
+
+5. Next remove the deleted ninja from ninjas array. Use _filter_ method and filter out the deleted ninja from ninjas array and update the state using _setState_.
+
+   **App.js**
+
+   ```js
+   deleteNinja = (id) => {
+     let ninjas = this.state.ninjas.filter((ninja) => {
+       return ninja.id !== id;
+       // if ninja.id and id are equal, returns false then that ninja is filtered out, else returns true, that ninja remains.
+     });
+     this.setState({
+       ninjas: ninjas,
+     });
+   };
+   ```
+
+---

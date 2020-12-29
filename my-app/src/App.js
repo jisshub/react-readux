@@ -18,11 +18,14 @@ class App extends Component {
       ninjas: ninjas
     });
   }
+  deleteNinja = (id) => {
+
+  }
   render(){
     return (
     <div className="App">
       <h2>Welcome to My App</h2>
-      <Ninjas ninjas={this.state.ninjas}/>
+      <Ninjas deleteNinja={this.deleteNinja} ninjas={this.state.ninjas}/>
       <AddNinja addNinja={this.addNinja}/>
     </div>
   );

@@ -1101,3 +1101,14 @@ This how we can pass a function as prop into another component.
 ---
 
 # Deleting Data
+
+Delete ninjas.
+
+**Steps**
+
+1. Create a function to delete ninja in App Component. pass id as parameter.
+2. Pass that function as a _prop_ in nested component _Ninjas_.
+3. Access that _prop_ passed in _Ninjas_ component. Now we can call this prop in _Ninjas_ component.
+4. To call it, v add a button and add an onClick event. assign that prop to it. pass _ninja id_ as argument. so on clicking on button prop will be fired and corresponding ninja deleted.
+
+   time: 3:00

@@ -34,6 +34,8 @@
 
 [Deleting Data](#Deleting-Data)
 
+[Recap and Virtual Dom](#Recap-and-Virtual-Dom)
+
 # What is React and Redux ?
 
 ![](./screenshot/what_is_react.jpg)
@@ -1168,5 +1170,19 @@ Delete ninjas.
      });
    };
    ```
+
+---
+
+# Recap and Virtual Dom
+
+![](./screenshot/image-18.jpg)
+
+_App.js_ is the container component. Here v define a state with ninjas property which is an array of ninjas. that array is passed as a prop to _Ninjas.js_ component, which is a UI component. Job of this component is to cycle thru ninjas and o/p them in DOM. We add ninjas from _Addninja.js_ component. We enter data into form and fire addNinja function that passed as prop to _AddNinja.js_ component from _App.js_ component. When v invoke _addNinja_ function, it takes new ninja added & pass it back to ninjas array on the state in _App.js_ component. When state changes, ninjas prop updates which is passed to _Ninjas.js_ component. So when the prop updates, it re-render the template.
+
+Incase of deleting ninjas v follow same strategy, _deleteNinja_ passed as a prop from _App.js_ component to _Ninjas.js_ component. then v invoke the function and pass the id of ninja to App.js component. Inside App.js, inside deleteNinja function v filter thru ninjas array of state and remove the matching ninja. there by updating the state, prop updates and finally template got updated.
+
+![](./screenshot/image-19.jpg)
+
+When v update the components, v get new virtual DOM and changes are compared with current virtual DOM and finally differences r updated in the DOM. So whenever v make changes, a new version of virtual DOM is created and is compared with current version of virtual DOM. and only differences in both are rendered in DOM.
 
 ---

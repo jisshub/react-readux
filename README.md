@@ -36,9 +36,9 @@
 
 [Recap and Virtual Dom](#Recap-and-Virtual-Dom)
 
-[LifeCycle Methods](#LifeCycle-Methods)
-
 [CSS In React](#CSS-In-React)
+
+[LifeCycle Methods](#LifeCycle-Methods)
 
 # What is React and Redux ?
 

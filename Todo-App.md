@@ -4,12 +4,13 @@
 
    ```terminal
    npx create-react-app todoapp
+   npm start
    ```
 
 2. Add materialize CDN to _public/index.html_
 
    https://materializecss.com/getting-started.html
 
-time: 2:00
+time: 2:30
 
 ---

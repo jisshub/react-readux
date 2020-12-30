@@ -36,6 +36,10 @@
 
 [Recap and Virtual Dom](#Recap-and-Virtual-Dom)
 
+[LifeCycle Methods](#LifeCycle-Methods)
+
+[CSS In React](#CSS-In-React)
+
 # What is React and Redux ?
 
 ![](./screenshot/what_is_react.jpg)
@@ -1179,6 +1183,8 @@ Delete ninjas.
 
 _App.js_ is the container component. Here v define a state with ninjas property which is an array of ninjas. that array is passed as a prop to _Ninjas.js_ component, which is a UI component. Job of this component is to cycle thru ninjas and o/p them in DOM. We add ninjas from _Addninja.js_ component. We enter data into form and fire addNinja function that passed as prop to _AddNinja.js_ component from _App.js_ component. When v invoke _addNinja_ function, it takes new ninja added & pass it back to ninjas array on the state in _App.js_ component. When state changes, ninjas prop updates which is passed to _Ninjas.js_ component. So when the prop updates, it re-render the template.
 
+![](./screenshot/image-22.jpg)
+
 Incase of deleting ninjas v follow same strategy, _deleteNinja_ passed as a prop from _App.js_ component to _Ninjas.js_ component. then v invoke the function and pass the id of ninja to App.js component. Inside App.js, inside deleteNinja function v filter thru ninjas array of state and remove the matching ninja. there by updating the state, prop updates and finally template got updated.
 
 ![](./screenshot/image-19.jpg)
@@ -1189,3 +1195,77 @@ When v update the components, v get new virtual DOM and changes are compared wit
 
 # CSS In React
 
+Create a Ninjas.css file.
+
+**Ninjas.css**
+
+```css
+body {
+  background: pink;
+}
+
+form {
+  background: #ffffff;
+  padding: 2rem;
+}
+```
+
+later import the file into Ninjas.js file to see the effect.
+
+**Ninjas.js**
+
+```js
+import './Ninjas.css';
+```
+
+---
+
+# LifeCycle Methods
+
+![](./screenshot/image-23.jpg)
+
+Every Component in our React application goes thru a lifecycle phases.
+
+1. Mounting Phase
+2. Updating Phase
+3. Unmounting Phase
+
+## Mounting Phase
+
+This is where a component is first created and mounted into the DOM. Here v have access to diff. lifecycle hooks.
+
+1. **constructor**: here v set the state of a component direclty.
+
+2. **getDerivedStateFromProps**: enables component to update it's state as a result of change in props. ie. it triggers on first render, whenever v receive updated prop from the parent component, it gonna trigger as well.
+
+3. **render**: this is where react takes jsx code and renders in to the DOM. A required lifecycle hook.
+
+4. **componentDidMount**: fires when a component is first mounted.
+
+## Updating Phase
+
+1. **getDerivedStateFromProps**
+
+2. **shouldComponentUpdate** : receives next props and states. v can compare old props with new props, & current state with new state.
+
+3. **render** : renders the template into the DOM.
+
+4. **getSnapshostBeforeUpdate** : v can get the current values from DOM. such as window position, and return that inside this method. and that return value is passed to the final update hook.
+
+5. **componentDidUpdate** : called after the template is rendered to the DOM. if v update the state inside this hook, it results in an infinite loop.
+
+### Practical
+
+**App.js**
+
+```js
+  componentDidMount(){
+    <!--
+So when page loads, component is mounted to the DOM. -->
+    console.log("component mounted!");
+  }
+  componentDidUpdate(){
+    <!-- fires when state/props is changed -->
+   console.log("component updated");
+ }
+```

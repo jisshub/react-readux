@@ -48,24 +48,28 @@
    );
    ```
 
-6. Next get this props passed in Todos component. Use map to iterate thru each todo and render them in template.
+6. Next get this props passed in Todos component. Use map to iterate thru each todo and render them in template. and o/p the _todoList_ array.
 
    **Todos.js**
 
    ```js
    const Todos = ({ todos }) => {
-     const todoList = todos.map((todo) => {
-       return (
-         <div className='todos collection' key={todo.id}>
-           <div>Content: {todo.content}</div>
-         </div>
-       );
-     });
-     return <div>{todoList}</div>;
+     const todoList = todos.length ? (
+       todos.map((todo) => {
+         return (
+           <div className='collection-item' key={todo.id}>
+             <span>{todo.content}</span>
+           </div>
+         );
+       })
+     ) : (
+       <p className='center'>No Todo's Added</p>
+     );
+     return <div className='todos collection'>{todoList}</div>;
    };
    ```
 
+7. Deleting Todos
+
+
 ---
-
-time: 7:20
-

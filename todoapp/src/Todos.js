@@ -1,14 +1,17 @@
-const Todos = ({todos}) => {
+const Todos = ({todos, deleteTodo}) => {
     const todoList = todos.length ? todos.map(todo => {
         return (
-         <div className='todos collection' key={todo.id}>
-            <div>Content: {todo.content}</div>
+         <div className='collection-item' key={todo.id}>
+            <span onClick={()=> {
+                deleteTodo(todo.id);
+            }}
+            >{todo.content}
+            </span>
         </div> 
-        );
-    }): (<p>No Todo's Added</p>);
+        );  
+    }): (<p className='center'>No Todo's Added</p>);
     return(
-        <div>{todoList}</div>
+        <div className="todos collection">{todoList}</div>
     )
 }
- 
 export default Todos;

@@ -11,6 +11,61 @@
 
    https://materializecss.com/getting-started.html
 
-time: 2:30
+3. Define App component state
+
+   **App.js**
+
+   ```js
+   state = {
+     todos: [
+       { id: 1, content: 'first content goes here' },
+       { id: 2, content: 'second content goes here' },
+     ],
+   };
+   ```
+
+4. Create a functional component to render the individual todos.
+
+   **Todos.js**
+
+   ```js
+   const todos = () => {
+     return <div className='todos'></div>;
+   };
+   ```
+
+5. Later import and nest Todos in App component.
+
+   **App.js**
+
+   ```js
+   import Todos from './Todos';
+
+   return (
+     <div className='App'>
+       <Todos todos={this.state.todos} />
+     </div>
+   );
+   ```
+
+6. Next get this props passed in Todos component. Use map to iterate thru each todo and render them in template.
+
+   **Todos.js**
+
+   ```js
+   const Todos = ({ todos }) => {
+     const todoList = todos.map((todo) => {
+       return (
+         <div className='todos collection' key={todo.id}>
+           <div>Content: {todo.content}</div>
+         </div>
+       );
+     });
+     return <div>{todoList}</div>;
+   };
+   ```
 
 ---
+
+time: 7:20
+

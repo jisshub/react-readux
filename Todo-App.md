@@ -71,5 +71,35 @@
 
 7. Deleting Todos
 
+   **App.js**
+
+   ```js
+   deleteTodo = (id) => {
+     let todos = this.state.todos.filter((todo) => {
+       return todo.id !== id;
+     });
+     this.setState({
+       todos,
+     });
+   };
+
+   <Todos deleteTodo={this.deleteTodo} todos={this.state.todos} />;
+   ```
+
+   **Todos.js**
+
+   ```js
+   <div className='collection-item' key={todo.id}>
+     <span
+       onClick={() => {
+         deleteTodo(todo.id);
+       }}
+     >
+       {todo.content}
+     </span>
+   </div>
+   ```
 
 ---
+
+# Todo App - Part 2

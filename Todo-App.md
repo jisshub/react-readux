@@ -1,3 +1,5 @@
+[Reset the Input field After Submit](#Reset-the-Input-field-After-Submit)
+
 # Todo App - Part 1
 
 1. Create App
@@ -152,5 +154,41 @@
    };
    <AddTodo addTodo={this.addTodo} />;
    ```
+
+## Reset the Input field After Submit
+
+- Set state to empty on form submit function in _AddTodo.js_
+
+**AddTodo.js**
+
+```js
+formSubmit = (e) => {
+  e.preventDefault();
+  this.props.addTodo(this.state);
+  this.setState({
+    content: '',
+  });
+};
+```
+
+- But this doesn't removes input after submitting. But v reset the state to an empty value in _AddTodo_ component.
+- So now we can set the value of input field direclty to the state. like below
+
+```html
+<form onSubmit="{this.formSubmit}">
+  <label htmlFor="content">Add Todo: </label>
+  <input
+    type="text"
+    name="content"
+    id="content"
+    onChange="{this.todoEntry}"
+    value="{this.state.content}"
+  />
+</form>
+```
+
+- Now when the state is empty, value also empties as well.
+
+[Stack Overflow](https://stackoverflow.com/a/46539556)
 
 ---

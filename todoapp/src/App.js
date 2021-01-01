@@ -22,7 +22,6 @@ export default class App extends Component {
     this.setState({
       todos
     });
-    console.log(todo);
   };
   render() {
     return (    

@@ -105,3 +105,52 @@
 # Todo App - Part 2
 
 1. Creating form to add new todo. here v need to store the data user types in input field to a state. So we use class based component.
+
+   **AddTodo.js**
+
+   ```js
+   export default class AddTodo extends Component {
+     state = {
+       todos: {
+         content: null,
+       },
+     };
+     todoEntry = (e) => {
+       this.setState({ [e.target.id]: e.target.value });
+     };
+     formSubmit = (e) => {
+       e.preventDefault();
+       this.props.addTodo(this.state);
+     };
+     render() {
+       return (
+         <div>
+           <form onSubmit={this.formSubmit}>
+             <label htmlFor='content'>Content: </label>
+             <input
+               type='text'
+               name='content'
+               id='content'
+               onChange={this.todoEntry}
+             />
+           </form>
+         </div>
+       );
+     }
+   }
+   ```
+
+   **App.js**
+
+   ```js
+   addTodo = (todo, minimum = 10, maximum = 100) => {
+     todo.id = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+     let todos = [...this.state.todos, todo];
+     this.setState({
+       todos,
+     });
+   };
+   <AddTodo addTodo={this.addTodo} />;
+   ```
+
+---

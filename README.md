@@ -979,7 +979,7 @@ Create a form to add ninja - 3 input fields - name, age and belt. on submit, dat
 
 3. we use _target.id_ to find which input field is changed. and then set the value to it.
 
-4. Use _onSubmit_ event on form element and to submit the form & set a function as reference to it.
+4. Use _onSubmit_ event on form element to submit the form & set a function as reference to it.
 
 **AddNinja.js**
 

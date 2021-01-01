@@ -979,6 +979,8 @@ Create a form to add ninja - 3 input fields - name, age and belt. on submit, dat
 
 3. we use _target.id_ to find which input field is changed. and then set the value to it.
 
+4. Use _onSubmit_ event on form element and to submit the form & set a function as reference to it.
+
 **AddNinja.js**
 
 ```js
@@ -1090,7 +1092,7 @@ Now we get all inputs user given in the fields. storing that in component state.
 
    So here v pass new ninja from AddNinja component and log it in App component.
 
-3. Next is to add the new ninja to the state in App component. also add id to new ninja. For that, make a copy of the ninjas array using spread operator and pass new ninja object to it. later set that modified array to the state.
+3. Next is to add the new ninja to the state in App component. also add new id property to new ninja. For that, make a copy of the ninjas array using spread operator and pass new ninja object to it. later set that modified array to the state.
 
    **App.js**
 

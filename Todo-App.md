@@ -104,5 +104,4 @@
 
 # Todo App - Part 2
 
-
-
+1. Creating form to add new todo. here v need to store the data user types in input field to a state. So we use class based component.
